@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">TODOs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+<!--      <li class="nav-item active">-->
+<!--        <a class="nav-link" routerLink="/login">Home<span class="sr-only">(current)</span></a>-->
+<!--      </li>-->
+      <li class="nav-item active">
+        <a *ngIf="hcAuthService.isLoggedIn()" class="nav-link" routerLink="/welcome">Welcome</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="hcAuthService.isLoggedIn()" class="nav-link" routerLink="/todos">Todos</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item dropdown mr-sm-2">
+        <a *ngIf="hcAuthService.isLoggedIn()" class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Manage</a>
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Storage</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Billing</a>
+          <a class="dropdown-item" href="#">Automation</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="!hcAuthService.isLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="hcAuthService.isLoggedIn()" routerLink="/logout" class="nav-link">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
