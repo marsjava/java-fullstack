@@ -2,8 +2,18 @@
  Welcome!.
 </h1>
 <div class="container">
-  <p>
-    Welcome {{name|uppercase}}.
-    Manage your Todos List <a routerLink="/todos">Click Here</a> to move the Page.
-  </p>
+  <p>Welcome {{name|uppercase}}.
+    Manage your Todos List <a routerLink="/todos">Click Here</a> to move the Page.</p>
 </div>
+
+<div class="container">
+  Click here to get the customized welcome Message. {{message}}
+  <button class="btn btn-primary" (click)="getMessage()">Get the Message</button>
+</div>
+
+<div class="container">
+  Click here to get the customized welcome Message with Param value. {{message}}
+  Enter User Message: <input type="text" [(ngModel)]="userMessage"> <br>
+  <button class="btn btn-outline-primary" (click)="getUserMessage()">Get the Message</button>
+</div>
+
